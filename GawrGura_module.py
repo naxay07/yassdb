@@ -1,0 +1,9 @@
+
+GawrGuraImages = [
+    "https://www.youtube.com/watch?v=VKkyJusLBpg",
+    "https://media.discordapp.net/attachments/813152141567983676/813874920823980073/uRrxAmOB.png",
+    "https://media.discordapp.net/attachments/813152141567983676/813875259227897926/maxresdefault.png",
+    "https://media.discordapp.net/attachments/813152141567983676/813875462517948416/a.jpg",
+    "https://media.discordapp.net/attachments/813152141567983676/813875604230504448/jean-kyle-montinola-gawr-the-maneater.png",
+    "https://media.discordapp.net/attachments/813152141567983676/813876842310271027/pet_the_shark.gif",
+]
