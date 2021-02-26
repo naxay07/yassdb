@@ -1,0 +1,5 @@
+At first, I thought I'll make a list of wholesome yuri and handholding links
+from pixiv, reddit and other places but I found out it'll require too much
+effort to make and maintenance this function that way.
+So, I've decided to learn API stuff. That way I can always grab fresh yuri.
+Also I have plans for nsfw and non-nsfw stuff
