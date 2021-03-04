@@ -79,7 +79,7 @@ async def jojo(ctx, arg):
 
 # This command allows users to use (not fully featured) figlet in Discord
 @bot.command(name='figlet')
-async def bot_figlet(ctx, arg):
+async def bot_figlet(ctx, *, arg):
     f = Figlet(font='big')
     figletizedMessage = f.renderText(arg)
     await ctx.channel.send(f"```{figletizedMessage}```")
