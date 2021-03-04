@@ -61,4 +61,24 @@ async def jojo(ctx, arg):
     except KeyError:
         await ctx.channel.send("```Cannot found command or dev fucked up something```")
 
+<<<<<<< Updated upstream
+=======
+# This command allows users to use (not fully featured) figlet in Discord
+@bot.command(name='figlet')
+async def bot_figlet(ctx, *arg):
+    isViable = True
+    for word in arg:
+        for char in word:
+            if ord(char) > 122:
+                isViable = False
+    
+    if isViable:
+        f = Figlet(font='big')
+        figletizedMessage = f.renderText(" ".join(arg))
+        await ctx.channel.send(f"```{figletizedMessage}```")
+    else:
+        await ctx.channel.send("Don't know that letter sir.")
+    
+
+>>>>>>> Stashed changes
 consodalized_token_and_run()
