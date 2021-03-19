@@ -287,7 +287,6 @@ dmypy.json
 
 ### other stuff that added by dev ###
 *.log
-bot_token.txt
 .idea/.gitignore
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/misc.xml
