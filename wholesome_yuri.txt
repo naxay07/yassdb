@@ -3,3 +3,5 @@ from pixiv, reddit and other places but I found out it'll require too much
 effort to make and maintenance this function that way.
 So, I've decided to learn API stuff. That way I can always grab fresh yuri.
 Also I have plans for nsfw and non-nsfw stuff
+
+https://i.kym-cdn.com/entries/icons/original/000/030/043/cover2.jpg

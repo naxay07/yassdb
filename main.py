@@ -5,6 +5,7 @@ from jojolib import jojoReactions
 from pyfiglet import Figlet
 from dotenv import load_dotenv
 import praw
+import platform
 
 load_dotenv()
 
@@ -14,6 +15,7 @@ def consodalized_token_and_run():
     bot.run(discord_token)
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or("loli "))
+reddit = praw.Reddit(client_id=os.getenv('reddit_id'), client_secret=os.getenv('reddit_secret'), user_agent='legaln\'t lolibot discord bot by u/naxaypu')
 
 # this event prints console logged in status and
 # changes rich presence of bot to 'watching trash code'
@@ -28,7 +30,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Cannot found command. Try using `help` to (not) figure out commands!")
     if isinstance(error, commands.errors.MissingRequiredArgument):
-            await ctx.send("*you forgot to pass an argument*")
+        await ctx.send("*you forgot to pass an argument*")
 
 
 # heart-warming greeting function
@@ -118,19 +120,13 @@ async def owo(ctx, *, arg):
     cevrilmis = random.choice(basa_gelecek) + cevrilmis + random.choice(sona_geleck)
     await ctx.channel.send(cevrilmis)
 
-# WIP/Reddit: Grabbing a random post from a specified subreddit and sending it as embed
+# Grabbing a random post from a ProgrammerHumor subreddit and sending it as embed
 @bot.command()
-async def reddit(ctx):
-# command name is a placeholder
+async def programmerhumour(ctx):
     async with ctx.channel.typing():
-        reddit = praw.Reddit(client_id=os.getenv('reddit_id'),
-                             client_secret=os.getenv('reddit_secret'),
-                             user_agent='legaln\'t lolibot discord bot by u/naxaypu')
         subreddit = reddit.subreddit("ProgrammerHumor")
         submission = subreddit.random()
-        print('just before embed')
         embed = discord.Embed(title=f'{subreddit.title}', description=f'{submission.title}')
-        print('embed initialization ok')
         embed.set_image(url=f'{submission.url}')
         embed.set_footer(text=f'Posted by u/{submission.author} on r/{subreddit.display_name}')
     await ctx.channel.send(embed= embed)
@@ -138,23 +134,33 @@ async def reddit(ctx):
 @bot.command()
 async def wholesomeyuri(ctx):
     async with ctx.channel.typing():
-        reddit = praw.Reddit(client_id=os.getenv('reddit_id'),
-                             client_secret=os.getenv('reddit_secret'),
-                             user_agent='legaln\'t lolibot discord bot by u/naxaypu')
         subreddit = reddit.subreddit('wholesomeyuri')
-        for posts in subreddit.hot(limit=20):
-            randomPostNumber = random.randint(0,20)
-            for i,posts in enumerate()
-        submission = subreddit
-        print('wholesomeyuri just before embed')
+        
+        # well, this part was the hardest part to find
+        # this was caused from a bug in reddit
+        # since this subreddit hidden itself from r/all and r/random
+        # you can't use praw's subreddit.random() function
+        # so what we do here is, list some posts from hot (limit is 20 here)
+        # make a list of them 
+        # (praw returns post id's which is used in other functions, nice!)
+        list_posts = list(subreddit.hot(limit=20))
+        # and them select one of that posts with good ol' random.choice() function
+        submission = random.choice(list_posts)
+        
+        # rest of code is just putting post in embed and etc.
         wholesomeyuri_embed = discord.Embed(title=f'{subreddit.title}', description=f'{submission.title}')
-        # wholesomeyuri_embed.set_image(url=f'{submission.url}')
-        # wholesomeyuri_embed.set_footer(text=f'Posted by u/{submission.author} on r/{subreddit.display_name}')
-        print("embed initialization done")
+        wholesomeyuri_embed.set_image(url=f'{submission.url}')
+        wholesomeyuri_embed.set_footer(text=f'Posted by u/{submission.author} on r/{subreddit.display_name}')
     await ctx.channel.send(embed=wholesomeyuri_embed)
 
-# TODO:
-# I will add rich presence to the server client when I learn
-# multithreading. Have nice day
+@bot.command()
+async def gigachad(ctx):
+    # post an gif of gigachad from tenor because why the hell not?
+    await ctx.channel.send('https://tenor.com/view/gigachad-chad-gif-20773266')
+
+@bot.command()
+async def server(ctx):
+    serverinfoembed = discord.Embed(title='Host computer info', description=f'OS: {platform.platform()}\n Python version: {platform.python_version()}')
+    await ctx.channel.send(embed=serverinfoembed)
 
 consodalized_token_and_run()

@@ -8,4 +8,5 @@ jojoReactions = {
     "no": "https://tenor.com/view/jotaro-kujo-jojo-bizarre-adventure-no-no-no-no-nope-gif-14295799",
     "yes": "https://tenor.com/view/jotaro-kujo-jojo-bizarre-adventure-gif-14295795",
     "deletthis": "https://tenor.com/view/jojo-anime-gun-delete-this-gif-11708471",
+    "nani": "https://media.tenor.co/videos/37dc112dffa52dc0427f7507306098b7/mp4",
 }
