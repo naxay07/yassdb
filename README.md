@@ -1,4 +1,4 @@
-# legaln't lolibot
+# yet another server specific bot
 
 **Please note that this bot was written as a joke and it's name is subject to change**
 
