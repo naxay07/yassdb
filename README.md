@@ -1,6 +1,4 @@
-# yet another server specific bot
-
-**Please note that this bot was written as a joke and it's name is subject to change**
+# yet another server specific discord bot
 
 This is my first project which is a Discord bot written in Python with discord.py
 
